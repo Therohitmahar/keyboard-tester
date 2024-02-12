@@ -3,13 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: rgb(11, 11, 17);
+}
 .main-page {
   font-family: monospace;
-  height: 100vh;
+  height: 90vh;
   display: flex;
+  flex-direction: column;
+  gap: 20px ;
   align-items: center;
   justify-content: center;
-  background-color: rgb(11, 11, 17);
 }
 .container {
   color: white;
@@ -21,6 +25,7 @@
   display: flex;
 }
 .container .single-text {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,14 +34,78 @@
   border-radius: 20%;
   background-color: rgb(34, 38, 43);
   box-shadow: 1px 2px 1px grey;
-  transition: 0.3s;
+  transition: 0.1s;
   margin: 2px;
-  border: 0.01px solid rgba(176, 178, 187, 0.479);
+  border: 0.1px solid ;
+  border-top-color: rgba(206, 206, 206, 0.842);
+  border-left-color: rgba(218, 218, 218, 0.479);
+  border-right-color: rgba(176, 178, 187, 0.479);
+  border-bottom-color: rgba(176, 178, 187, 0.479);
+}
+.container .single-text.F::after,.container .single-text.J::after{
+  content: "";
+  position: absolute;
+  bottom: 12%;
+  height: 1px;
+  width: 9px;
+  background-color: rgb(255, 250, 241);
 }
 .container .single-text.active {
   box-shadow: 0px 0px 0px grey;
   /* border: 0px solid whitesmoke; */
   transform: scale(0.92);
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: relative;
+  color: white;
+}
+
+.input-container .label {
+  font-size: 15px;
+  padding-left: 10px;
+  position: absolute;
+  top: 13px;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input {
+  width: 200px;
+  height: 45px;
+  border: none;
+  outline: none;
+  padding: 0px 7px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  background-color: transparent;
+  box-shadow: 3px 3px 10px rgba(0,0,0,1),
+  -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.input:focus {
+  border: 2px solid transparent;
+  color: #fff;
+  box-shadow: 3px 3px 10px rgba(0,0,0,1),
+  -1px -1px 6px rgba(255, 255, 255, 0.4),
+  inset 3px 3px 10px rgba(0,0,0,1),
+  inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+}
+
+.input-container .input:valid ~ .label,
+.input-container .input:focus ~ .label {
+  transition: 0.3s;
+  padding-left: 2px;
+  transform: translateY(-35px);
+}
+.input-container .input:focus {
+  box-shadow: 3px 3px 10px rgba(0,0,0,1),
+  -1px -1px 6px rgba(255, 255, 255, 0.4),
+  inset 3px 3px 10px rgba(0,0,0,1),
+  inset -1px -1px 6px rgba(255, 255, 255, 0.4);
 }
 /* @media screen and (min-width:"425px") {
     .main-page{
